@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         
         // Insert the SQL database with the square root result
         $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot);";
-        if ($conn->query($insertSql) !== TRUE) {
+        if ($connection->query($insertSql) !== TRUE) {
             http_response_code(500); // Internal Server Error
             echo json_encode(['error' => 'Error updating the database']);
             exit; // Exit the script if there's an error
