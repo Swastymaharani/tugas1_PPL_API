@@ -1,17 +1,18 @@
 <?php
-// Database connection parameters
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $database = "bilangan_kuadrat";
+// Retrieve database connection information from environment variables
+$dbHost = getenv('DB_HOST');
+$dbPort = getenv('DB_PORT');
+$dbName = getenv('DB_NAME');
+$dbUser = getenv('DB_USER');
+$dbPassword = getenv('DB_PASSWORD');
 
 // Create a database connection
-// $conn = new mysqli($servername, $username, $password, $database);
+$connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName, $dbPort);
 
-// Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
+// Check if the connection was successful
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
 
 // Function to calculate square root using PHP
 function calculateSquareRoot($number) {
@@ -45,39 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode(['error' => 'Method not allowed']);
 }
 
-// // Handle API requests
-// if($_SERVER['REQUEST_METHOD'] === 'GET'){
-//     // Parse JSON request data
-//     $requestData = json_decode(file_get_contents('php://input'), true);
-    
-//     if (isset($requestData['number'])) {
-//         $number = floatval($requestData['number']);
-//         $squareRoot = sqrt($number);
-//         $response = ['square_root' => $squareRoot];
-//         echo json_encode($response);
-
-//         // Update the SQL database with the square root result
-//         $updateSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot);";
-//         if ($conn->query($updateSql) !== TRUE) {
-//             http_response_code(500); // Internal Server Error
-//             echo json_encode(['error' => 'Error updating the database']);
-//             exit; // Exit the script if there's an error
-//         }
-//         else {
-//             http_response_code(500); // Internal Server Error
-//             echo json_encode(['error' => 'Error fetching data from the database']);
-//         }
-//     } else {
-//         http_response_code(400); // Bad Request
-//         echo json_encode(['error' => 'Missing "number" parameter']);
-//     }
-// }
-// else {
-//     http_response_code(405); // Method Not Allowed
-//     echo json_encode(['error' => 'Method not allowed']);
-// }
-
 // Close the database connection
-// $conn->close();
+$connection->close();
 ?>
 
