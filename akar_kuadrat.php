@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the 'number' parameter
     $number = floatval($_GET['number']);
     echo($number);
+    echo json_encode(['message' => $number]);
 
     if ($number !== null) {
         $squareRoot = calculateSquareRoot($number);
@@ -43,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
         else {
             echo json_encode(['square_root' => $squareRoot]);
+            echo json_encode(['message' => $squareRoot]);
         }
     } else {
         http_response_code(400); // Bad Request
