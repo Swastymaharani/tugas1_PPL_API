@@ -26,8 +26,8 @@ function calculateSquareRoot($number) {
 
 // Handle API requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the 'number' parameter from the query string
-    $number = isset($_POST['number']) ? floatval($_POST['number']) : null;
+    // Get the 'number' parameter
+    $number = floatval($_POST['number']);
 
     if ($number !== null) {
         $squareRoot = calculateSquareRoot($number);
