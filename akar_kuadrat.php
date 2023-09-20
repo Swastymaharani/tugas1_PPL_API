@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $squareRoot = calculateSquareRoot($number);
         
         // Insert the SQL database with the square root result
-        $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot);";
+        $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot)";
         if ($connection->query($insertSql) !== TRUE) {
             http_response_code(500); // Internal Server Error
             echo json_encode(['error' => 'Error updating the database']);
