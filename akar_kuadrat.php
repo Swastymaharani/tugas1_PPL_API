@@ -1,6 +1,6 @@
 <?php
 // Allow Cross-Origin Resource Sharing (CORS)
-header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app, https://tugas1-qdknlgfec-swastymaharani.vercel.app");
+header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app, https://tugas1-fodqvqxjp-swastymaharani.vercel.app/");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
@@ -25,9 +25,9 @@ function calculateSquareRoot($number) {
 }
 
 // Handle API requests
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the 'number' parameter
-    $number = floatval($_POST['number']);
+    $number = floatval($_GET['number']);
 
     if ($number !== null) {
         $squareRoot = calculateSquareRoot($number);
