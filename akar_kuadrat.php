@@ -4,20 +4,20 @@ header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app, https://tuga
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
-// Retrieve database connection information from environment variables
-$dbHost = getenv('DB_HOST');
-$dbPort = getenv('DB_PORT');
-$dbName = getenv('DB_NAME');
-$dbUser = getenv('DB_USER');
-$dbPassword = getenv('DB_PASSWORD');
+// // Retrieve database connection information from environment variables
+// $dbHost = getenv('DB_HOST');
+// $dbPort = getenv('DB_PORT');
+// $dbName = getenv('DB_NAME');
+// $dbUser = getenv('DB_USER');
+// $dbPassword = getenv('DB_PASSWORD');
 
-// Create a database connection
-$connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName, $dbPort);
+// // Create a database connection
+// $connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName, $dbPort);
 
-// Check if the connection was successful
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
+// // Check if the connection was successful
+// if ($connection->connect_error) {
+//     die("Connection failed: " . $connection->connect_error);
+// }
 
 // Function to calculate square root using PHP
 function calculateSquareRoot($number) {
