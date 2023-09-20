@@ -1,4 +1,9 @@
 <?php
+// Allow Cross-Origin Resource Sharing (CORS)
+header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app/akar_kuadrat.html");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type");
+
 // Retrieve database connection information from environment variables
 $dbHost = getenv('DB_HOST');
 $dbPort = getenv('DB_PORT');
