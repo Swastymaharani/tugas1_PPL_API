@@ -25,15 +25,17 @@ function calculateSquareRoot($number) {
 }
 
 // Handle API requests
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the 'number' parameter
-    $number = floatval($_GET['number']);
+    $number = floatval($_POST['number']);
+    echo($number);
 
     if ($number !== null) {
         $squareRoot = calculateSquareRoot($number);
         
         // Insert the SQL database with the square root result
         $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot)";
+        echo($insertSql);
         if ($connection->query($insertSql) !== TRUE) {
             http_response_code(500); // Internal Server Error
             echo json_encode(['error' => 'Error updating the database']);
