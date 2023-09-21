@@ -33,19 +33,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if ($number !== null) {
         $squareRoot = calculateSquareRoot($number);
+        echo json_encode(['message' => $squareRoot]);
         
-        // Insert the SQL database with the square root result
-        $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot)";
-        echo($insertSql);
-        if ($connection->query($insertSql) !== TRUE) {
-            http_response_code(500); // Internal Server Error
-            echo json_encode(['error' => 'Error updating the database']);
-            exit; // Exit the script if there's an error
-        }
-        else {
-            echo json_encode(['square_root' => $squareRoot]);
-            echo json_encode(['message' => $squareRoot]);
-        }
+        // // Insert the SQL database with the square root result
+        // $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($number, $squareRoot)";
+        // echo($insertSql);
+        // if ($connection->query($insertSql) !== TRUE) {
+        //     http_response_code(500); // Internal Server Error
+        //     echo json_encode(['error' => 'Error updating the database']);
+        //     exit; // Exit the script if there's an error
+        // }
+        // else {
+        //     echo json_encode(['square_root' => $squareRoot]);
+        // }
     } else {
         http_response_code(400); // Bad Request
         echo json_encode(['error' => 'Missing or invalid "number" parameter']);
@@ -56,6 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 // Close the database connection
-$connection->close();
+// $connection->close();
 ?>
 
