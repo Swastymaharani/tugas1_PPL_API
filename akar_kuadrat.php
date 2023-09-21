@@ -1,9 +1,4 @@
 <?php
-// Allow Cross-Origin Resource Sharing (CORS)
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type");
-
 // Function to calculate square root using PHP
 function calculateSquareRoot($numbers) {
     return sqrt($numbers);
