@@ -1,6 +1,6 @@
 <?php
 // Allow Cross-Origin Resource Sharing (CORS)
-header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app, https://tugas1-ha8o9gqj6-swastymaharani.vercel.app");
+header("Access-Control-Allow-Origin: https://tugas1-ppl.vercel.app, tugas1-6t2rsnvlj-swastymaharani.vercel.app");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
