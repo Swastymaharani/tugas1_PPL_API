@@ -20,37 +20,38 @@ function calculateSquareRoot($numbers) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the 'numbers' parameter
     $numbers = floatval($_GET['numbers']);
+    echo json_encode(['square_root' => $numbers]);
 
-    if ($numbers !== null) {
-        $squareRoot = calculateSquareRoot($numbers);
+    // if ($numbers !== null) {
+    //     $squareRoot = calculateSquareRoot($numbers);
         
-        // Create a database connection
-        $connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
+    //     // Create a database connection
+    //     $connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
-        // Check if the connection was successful
-        if ($connection->connect_error) {
-            http_response_code(500); // Internal Server Error
-            echo json_encode(['error' => 'Error connecting to the database']);
-            exit; // Exit the script if there's an error
-        }
+    //     // Check if the connection was successful
+    //     if ($connection->connect_error) {
+    //         http_response_code(500); // Internal Server Error
+    //         echo json_encode(['error' => 'Error connecting to the database']);
+    //         exit; // Exit the script if there's an error
+    //     }
 
-        // Insert the numbers and square root into the database
-        $insertSql = "INSERT INTO your_table_name (numbers, square_root) VALUES ($numbers, $squareRoot)";
+    //     // Insert the numbers and square root into the database
+    //     $insertSql = "INSERT INTO your_table_name (numbers, square_root) VALUES ($numbers, $squareRoot)";
         
-        if ($connection->query($insertSql) !== TRUE) {
-            http_response_code(500); // Internal Server Error
-            echo json_encode(['error' => 'Error updating the database']);
-            exit; // Exit the script if there's an error
-        } else {
-            echo json_encode(['square_root' => $squareRoot]);
-        }
+    //     if ($connection->query($insertSql) !== TRUE) {
+    //         http_response_code(500); // Internal Server Error
+    //         echo json_encode(['error' => 'Error updating the database']);
+    //         exit; // Exit the script if there's an error
+    //     } else {
+    //         echo json_encode(['square_root' => $squareRoot]);
+    //     }
 
-        // Close the database connection
-        $connection->close();
-    } else {
-        http_response_code(400); // Bad Request
-        echo json_encode(['error' => 'Missing or invalid "numbers" parameter']);
-    }
+    //     // Close the database connection
+    //     $connection->close();
+    // } else {
+    //     http_response_code(400); // Bad Request
+    //     echo json_encode(['error' => 'Missing or invalid "numbers" parameter']);
+    // }
 } else {
     http_response_code(405); // Method Not Allowed
     echo json_encode(['error' => 'Method not allowed']);
