@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
 
         // Insert the numbers and square root into the database
-        $insertSql = "INSERT INTO your_table_name (numbers, square_root) VALUES ($numbers, $squareRoot)";
+        $insertSql = "INSERT INTO tb_sqnumbers (numbers, sqnumber) VALUES ($numbers, $squareRoot)";
         
         if ($connection->query($insertSql) !== TRUE) {
             http_response_code(500); // Internal Server Error
