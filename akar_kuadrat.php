@@ -19,7 +19,12 @@ function calculateSquareRoot($numbers) {
 // Handle API requests
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the 'numbers' parameter
-    $numbers = floatval($_GET['numbers']);
+    $jsonData = $_GET['numbers'];
+
+    // Decode the JSON data
+    $numbers = json_decode($jsonData, true);
+    $numbers = floatval($numbers);
+
     echo json_encode(['square_root' => $numbers]);
 
     if ($numbers !== null) {
