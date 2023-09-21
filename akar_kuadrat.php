@@ -5,16 +5,16 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Retrieve database connection information from environment variables
-$dbHost = getenv('DB_HOST');
-$dbPort = getenv('DB_PORT');
-$dbName = getenv('DB_NAME');
-$dbUser = getenv('DB_USER');
-$dbPassword = getenv('DB_PASSWORD');
+// $dbHost = getenv('DB_HOST');
+// $dbPort = getenv('DB_PORT');
+// $dbName = getenv('DB_NAME');
+// $dbUser = getenv('DB_USER');
+// $dbPassword = getenv('DB_PASSWORD');
 
-// Function to calculate square root using PHP
-function calculateSquareRoot($numbers) {
-    return sqrt($numbers);
-}
+// // Function to calculate square root using PHP
+// function calculateSquareRoot($numbers) {
+//     return sqrt($numbers);
+// }
 
 // Handle API requests
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
